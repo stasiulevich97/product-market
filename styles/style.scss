@@ -1,0 +1,95 @@
+@import "./variables.scss";
+
+
+@mixin flex {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app{
+
+}
+
+a{
+    text-decoration: none;
+    color: $nav-text-color;
+    font-size: $nav-font-size;
+    font-family: sans-serif;
+}
+
+li{
+    list-style-type: none;
+}
+
+.header{
+    @include flex;
+    
+    
+    &__logo{
+        width: $logo-width;
+        height: $logo-height;
+        margin: $margin-md;
+    }
+    &__item{
+        padding:0 $padding-md;
+    }
+}
+
+
+.header__items{
+    @include flex;
+}
+
+.donate__button-wrapper{
+    @include flex;
+    margin-right: $margin-md;
+
+}
+
+.donate__btn{
+    width: $btn-width;
+    height: $btn-heigth;
+    background-color: $btn-bg-color;
+    border-radius: 1rem ;
+    border: none;
+    cursor: pointer;
+}
+
+.banner__img-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.banner__img{
+    width: 95%;
+}
+
+.main__title{
+    text-align: center;
+    margin: $margin-md 0;
+
+}
+
+.main__content-wrapper{
+   display:grid;
+   grid-template-columns: repeat(3,1fr);
+   margin-left: $margin-md;
+
+}
+
+.main__img{
+    width: $img-width;
+    height: $img-heigth;
+    &-title{
+        font-size: 1rem;
+        color: $secondary-text-color;
+
+    }
+}
+
