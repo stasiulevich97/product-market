@@ -1,5 +1,10 @@
 @import "./variables.scss";
 
+@font-face{
+    font-family: "Montserrat";
+    src : "../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf";
+}
+
 
 @mixin flex {
     display:flex;
@@ -7,40 +12,55 @@
     align-items: center;
 }
 
+@mixin font {
+    color: $secondary-text-color;
+    font-size: $font-size;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    
+}
+
+@mixin text {
+    margin: 0 $margin-md;
+    color: $secondary-text-color;
+    font-size: $font-size;
+    
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: $font-family
 }
 
 #app{
-
+    .header{
+        @include flex;
+        
+        &__logo{
+            width: $logo-width;
+            height: $logo-height;
+            margin: $margin-md;
+        }
+        
+        &__item{
+            padding:0 $padding-md;
+        }
+    }
 }
 
 a{
     text-decoration: none;
     color: $nav-text-color;
     font-size: $nav-font-size;
-    font-family: sans-serif;
 }
 
 li{
     list-style-type: none;
 }
 
-.header{
-    @include flex;
-    
-    
-    &__logo{
-        width: $logo-width;
-        height: $logo-height;
-        margin: $margin-md;
-    }
-    &__item{
-        padding:0 $padding-md;
-    }
-}
+
 
 
 .header__items{
@@ -73,6 +93,7 @@ li{
 .main__title{
     text-align: center;
     margin: $margin-md 0;
+    color: $secondary-text-color;
 
 }
 
@@ -87,9 +108,147 @@ li{
     width: $img-width;
     height: $img-heigth;
     &-title{
-        font-size: 1rem;
-        color: $secondary-text-color;
+        @include font;
+        margin-top: $margin-sm;
 
     }
 }
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    background-color: $bg-color;
+    margin-top: $margin-md;
+    color: $text-color;
 
+}
+
+
+// *bonus page
+
+.bonus_title-wrapper{
+    margin: $margin-md;
+    @include font;
+   
+}
+
+.text__container{
+    @include text;
+
+}
+
+.bonus__text{
+    padding: $padding-md 0;
+}
+
+.text__list-item{
+    list-style-type:square;
+    padding: $padding-sm 0;
+    margin: 0 $margin-md;
+}
+
+// zakaz page
+
+.zakaz_title-wrapper{
+    margin: $margin-md;
+    @include font;
+    font-size: 1rem;
+
+}
+.bold{
+    font-weight: 800;
+}
+
+.zakaz__text{
+    @include text;
+    padding: $padding-md 0;
+}
+
+.zakaz__list{
+    @include text;
+
+    &-item{
+        list-style-type:square;
+        padding: $padding-sm 0;
+        margin: 0 $margin-md;
+    }
+}
+
+// dostavka page
+
+.dostavla_title-wrapper{
+    margin: $margin-md;
+    @include font;
+    font-size: 1rem;
+
+}
+
+.dostavka__page-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.dostavka__img{
+    width: $secondary-img-width;
+    margin: $margin-md;
+}
+
+.dostavka__page-title{
+    @include font;
+    margin: $margin-md;
+}
+.dostavka__text{
+    padding: $padding-md 0;
+    @include text;
+}
+
+.dostavka__list{
+    @include text;
+    &-item{
+        list-style-type:square;
+        padding: $padding-sm 0;
+        margin: 0 $margin-md;
+    }
+}
+
+
+// oplata-page
+
+.oplata__wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: $margin-md 0;
+
+}
+
+.oplata__title{
+    margin: $margin-md 0;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+
+    &__input{
+        padding: $padding-sm;
+        margin: $margin-sm;
+        width: $form-width;
+        border-radius: 1rem;
+        border: 1px solid;
+        outline:forestgreen;
+        
+    }
+}
+
+.pay__btn{
+    border: none;
+    background-color: $btn-bg-color;
+    border-radius: 1rem;
+    width: $btn-width;
+    height: $btn-heigth;
+    margin: $margin-md;
+    cursor: pointer;
+}
